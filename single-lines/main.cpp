@@ -19,7 +19,7 @@ int main(){
   int lineAY = 0;
   sf::Vector2f lineAdimentions(lineAWidth, lineAHeight);
 
-  //Setting features for the line A
+  //Setting features for the line B
   int lineBWidth = 10;
   int lineBHeight = 100;
   int lineBX = 0;
