@@ -3,17 +3,34 @@
 */
 
 #include <SFML/Graphics.hpp>
+#include "../common/helpers/to_string.h"
 #include <iostream>
+
+sf::RenderWindow window;
+sf::Font fontFamily;
+
+void generateTexts(){
+  sf::Text textSelf;
+  int y = 50;
+  for(int i=1; i <= 5; i++){
+    sf::String textToPrint = "hi! I'm -->"+ toString(i) +" number";
+    textSelf.setFont(fontFamily);
+    textSelf.setString(textToPrint);
+    textSelf.setColor(sf::Color::Green);
+    textSelf.setPosition(0,y);
+    y += textSelf.getLocalBounds().height;
+    window.draw(textSelf);
+  }
+}
 
 int main(){
 
   //Setting dimensions for my window
-  int videoWidth = 300;
+  int videoWidth = 400;
   int videoHeight = 300;
   sf::VideoMode videoDimentions(videoWidth, videoHeight);
   sf::String title = "Single texts!";
 
-  sf::Font fontFamily;
   if (!fontFamily.loadFromFile("../common/Consolas.ttf")){
     std::cout << "Error! Can't be loaded the font";
   }
@@ -29,8 +46,9 @@ int main(){
   int textBX = 15;
   int textBY = 20;
 
+
   //Render a window
-  sf::RenderWindow window(videoDimentions, title);
+  window.create(videoDimentions,title);
 
   //Render the text A
   sf::Text textASelf;
@@ -56,8 +74,9 @@ int main(){
     window.clear();
     window.draw(textASelf);
     window.draw(textBSelf);
+    generateTexts();
     window.display();
   }
-
   return 0;
 }
+

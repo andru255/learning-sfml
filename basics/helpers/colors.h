@@ -1,3 +1,7 @@
+/*
+  source: http://stackoverflow.com/a/17469726/1226910
+*/
+
 #include <ostream>
 
 namespace Color {
